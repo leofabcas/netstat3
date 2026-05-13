@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NETSTAT - AR | Cliks Informática</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Newsreader:ital,wght@1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body
+  class="bg-background text-on-background font-body-standard overflow-x-hidden selection:bg-primary selection:text-on-primary"
+  data-mode="connect">
+  <!-- Global Noise Texture -->
+  <svg class="noise-overlay">
+    <filter id="noise">
+      <feTurbulence baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" type="fractalNoise"></feTurbulence>
+    </filter>
+    <rect filter="url(#noise)" height="100%" width="100%"></rect>
+  </svg>
+  <!-- TopNavBar -->
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center justify-between max-w-5xl px-6 md:px-8 bg-slate-950/40 backdrop-blur-xl rounded-full mt-6 mx-auto w-[90%] md:w-fit py-3 border border-white/10 shadow-2xl transition-all duration-500">
+    <a href="#"
+      class="text-lg md:text-xl font-black tracking-widest text-white uppercase font-['Plus_Jakarta_Sans'] hover:opacity-80 transition-opacity cursor-pointer z-50 relative">NETSTAT
+      -AR</a>
+    
+    <!-- Desktop Menu (visible from 768px+) -->
+    <div class="hidden md:flex items-center justify-center gap-6 lg:gap-8 mx-6 lg:mx-12">
+      <a class="font-['Plus_Jakarta_Sans'] tracking-tighter uppercase text-xs font-bold text-white/50 hover:text-white transition-colors duration-500"
+        href="#telemetry">Experiencia</a>
+      <a class="font-['Plus_Jakarta_Sans'] tracking-tighter uppercase text-xs font-bold text-white/50 hover:text-white transition-colors duration-500"
+        href="#network">Servicios</a>
+      <a class="font-['Plus_Jakarta_Sans'] tracking-tighter uppercase text-xs font-bold text-white/50 hover:text-white transition-colors duration-500"
+        href="#vision">Vision</a>
+    </div>
+
+    <!-- Connect Button & Hamburger -->
+    <div class="flex items-center justify-end gap-2 md:gap-4 z-50 relative">
+      <a href="#protocol"
+        class="hidden md:block bg-white text-slate-950 px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider magnetic-effect cursor-pointer active:scale-95 transition-all">Connect</a>
+      <button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-2 focus:outline-none transition-transform active:scale-95">
+        <span class="material-symbols-outlined text-2xl" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#000814]/95 backdrop-blur-xl z-40 flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 flex">
+    <div class="flex flex-col items-center gap-8 transform translate-y-8 transition-transform duration-500" id="mobile-menu-links">
+      <a class="font-['Plus_Jakarta_Sans'] tracking-widest uppercase text-xl font-bold text-white hover:text-primary transition-colors duration-500 mobile-link"
+        href="#telemetry">Experiencia</a>
+      <a class="font-['Plus_Jakarta_Sans'] tracking-widest uppercase text-xl font-bold text-white hover:text-primary transition-colors duration-500 mobile-link"
+        href="#network">Servicios</a>
+      <a class="font-['Plus_Jakarta_Sans'] tracking-widest uppercase text-xl font-bold text-white hover:text-primary transition-colors duration-500 mobile-link"
+        href="#vision">Vision</a>
+      <a href="#protocol"
+        class="bg-primary text-slate-950 px-8 py-3 mt-4 rounded-full text-sm font-bold uppercase tracking-wider magnetic-effect cursor-pointer active:scale-95 transition-all mobile-link">Connect</a>
+    </div>
+  </div>
+  <!-- Hero Section -->
+  <section class="relative min-h-[100dvh] md:h-[1024px] w-full overflow-hidden pt-24 md:pt-0">
+    <div class="absolute inset-0 z-0">
+      <img class="w-full h-full object-cover opacity-100"
+        data-alt="A cinematic, low-angle shot of a massive, hyper-modern datacenter corridor filled with glowing blue server racks stretching into infinity. The lighting is moody and high-contrast, featuring deep blacks and electric blue highlights. Atmospheric mist caught in the light beams adds a sense of immense scale and technical mystery. The overall aesthetic is cold, precise, and sophisticated."
+        src="https://res.cloudinary.com/dqetqwtxt/image/upload/v1778159473/Gemini_Generated_Image_Network_no_watermark_c3cajx.png">
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    <div class="relative z-10 flex flex-col justify-end h-full px-6 md:px-margin-global pb-12 md:pb-24 max-w-7xl mx-auto">
+      <div class="max-w-3xl space-y-6">
+        <h1 class="grid gap-2">
+          <span class="font-display-lg text-4xl md:text-display-lg text-white leading-tight">Soluciones integrales</span>
+          <span
+            class="font-display-lg font-black text-4xl sm:text-6xl md:text-[100px] leading-none md:leading-tight text-primary uppercase tracking-tighter md:-mt-4">Infraestructura&nbsp;</span>
+          <span class="text-terminal-green text-xs md:text-sm font-telemetry-data tracking-[0.2em] md:tracking-[0.3em] uppercase mt-2 animate-text-breathing">BY CLICKS INFORMÁTICA</span>
+        </h1>
+        <p class="text-on-surface-variant max-w-xl font-body-standard text-base md:text-lg opacity-80">Garantizamos interconectividad
+          de máxima calidad, estabilidad y eficiencia para empresas y hogares inteligentes.</p>
+        <div class="pt-8 flex sm:block justify-center">
+          <a href="#protocol" id="hero-action-btn" class="group inline-flex items-center justify-center bg-primary text-on-primary w-16 h-16 rounded-full animate-breathing-button magnetic-effect transition-all hover:bg-white hover:text-black">
+          <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+        </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Nosotros / Features -->
+  <section class="py-16 md:py-32 px-6 md:px-margin-global relative overflow-hidden" id="telemetry">
+    <div class="absolute inset-0 parallax-bg"
+      style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1777594002/Dise%C3%B1o_sin_t%C3%ADtulo_xax7hz.png')">
+    </div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10">
+      <div class="max-w-7xl mx-auto mb-12 md:mb-24 relative">
+        <h2
+          class="font-display-lg text-7xl md:text-[220px] font-black text-white uppercase tracking-tighter opacity-[0.08] absolute -top-10 md:-top-28 left-0 pointer-events-none select-none">
+          Experiencia</h2>
+        <div class="relative z-10 text-left">
+          <span class="text-primary font-telemetry-data tracking-[0.3em] uppercase text-xs md:text-sm block opacity-60 mb-4">Módulo // Core</span>
+          <h3 class="font-display-lg font-black text-5xl sm:text-6xl md:text-8xl text-white tracking-tighter leading-[0.85] uppercase"
+            style="text-shadow: 0 0 80px rgba(169,199,255,0.15), 0 20px 60px rgba(0,0,0,0.6);">Experiencia</h3>
+          <div class="h-1.5 w-32 bg-primary mt-6 shadow-[0_0_30px_rgba(169,199,255,0.8)] rounded-full"></div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-gutter-grid">
+        <!-- Feature 1: Experiencia -->
+        <div class="lg:col-span-4 space-y-8">
+          <h2 class="font-display-lg font-black text-3xl md:text-5xl text-white tracking-tighter uppercase"
+            style="text-shadow: 0 0 60px rgba(169,199,255,0.1), 0 10px 40px rgba(0,0,0,0.5);">Proto<span class="text-primary">colos</span></h2>
+          <div class="space-y-4 relative h-[300px] overflow-hidden" id="exp-carousel">
+            <div
+              class="glass-panel p-8 rounded-xl absolute w-full transition-all duration-1000 opacity-0 translate-y-32 exp-card">
+              <span class="text-primary font-telemetry-data text-xs uppercase tracking-widest mb-2 block">Protocol
+                01</span>
+              <h4 class="font-bold text-white text-xl">Arquitectura Robusta</h4>
+            </div>
+            <div
+              class="glass-panel p-8 rounded-xl absolute w-full transition-all duration-1000 opacity-0 translate-y-32 exp-card">
+              <span class="text-primary font-telemetry-data text-xs uppercase tracking-widest mb-2 block">Protocol
+                02</span>
+              <h4 class="font-bold text-white text-xl">Escalabilidad Dinámica</h4>
+            </div>
+            <div
+              class="glass-panel p-8 rounded-xl absolute w-full transition-all duration-1000 opacity-0 translate-y-32 exp-card">
+              <span class="text-primary font-telemetry-data text-xs uppercase tracking-widest mb-2 block">Protocol
+                03</span>
+              <h4 class="font-bold text-white text-xl">Seguridad Encriptada</h4>
+            </div>
+          </div>
+        </div>
+        <!-- Feature 2: Telemetría -->
+        <div
+          class="lg:col-span-4 glass-panel p-6 md:p-container-padding rounded-xl grid grid-rows-[auto_1fr] gap-8 border-primary/20">
+          <div class="grid grid-cols-[1fr_auto] items-center">
+            <h2 class="font-display-lg font-black text-3xl md:text-5xl text-white tracking-tighter uppercase"
+              style="text-shadow: 0 0 60px rgba(169,199,255,0.1), 0 10px 40px rgba(0,0,0,0.5);">Tele<span class="text-primary">metría</span></h2>
+            <div class="w-3 h-3 bg-emerald-400 rounded-full pulse-dot"></div>
+          </div>
+          <div
+            class="bg-black/80 p-6 rounded-lg border border-white/10 font-['JetBrains_Mono',_monospace] text-[#00ff41] shadow-inner">
+            <p class="mb-2 opacity-50">// SYSTEM STATUS: OPTIMIZING</p>
+            <p class="mb-2" id="typing-text"><span class="text-white">&gt;</span> <span class="content"></span><span
+                class="animate-pulse bg-[#00ff41] w-2 h-4 inline-block ml-1"></span></p>
+            <p class="text-xs text-white/30 mt-4">CORE_LOAD: 24% | LATENCY: 2ms</p>
+          </div>
+        </div>
+        <!-- Feature 3: Connectivity Map -->
+        <div class="lg:col-span-4 glass-panel rounded-xl overflow-hidden group">
+          <div class="h-64 relative overflow-hidden" id="fiber-container">
+            <img class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale brightness-75 scale-110"
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b3/World-map-2004-cia-factbook.jpg" alt="">
+            <div class="absolute inset-0 bg-slate-950/20"></div>
+            <canvas id="fiber-canvas" class="absolute inset-0 w-full h-full"></canvas>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="font-display-lg font-black text-2xl md:text-3xl text-white tracking-tighter uppercase mb-3"
+              style="text-shadow: 0 0 60px rgba(169,199,255,0.1), 0 10px 40px rgba(0,0,0,0.5);">Conecti<span class="text-primary">vidad</span></h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed">NETSTAT -AR te asegura estar un paso adelante con
+              una visualización en tiempo real de tu infraestructura crítica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Proyecto Section (Parallax Content) -->
+  <section class="bg-surface-container-lowest py-16 md:py-32 space-y-16 md:space-y-32" id="network">
+    <!-- Section 1: Infraestructura -->
+    <div class="relative min-h-[500px] md:min-h-[819px] grid items-center py-16">
+      <div class="absolute inset-0 parallax-bg"
+        style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1777594692/Datacenter_pzl9my.png')">
+      </div>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-global grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+        <div class="space-y-8 group">
+          <span class="text-primary font-telemetry-data tracking-[0.3em] uppercase text-xs md:text-sm block opacity-60 group-hover:opacity-100 transition-opacity duration-700">Protocol // 01</span>
+          <h2 class="font-display-lg font-black text-6xl sm:text-7xl md:text-9xl text-white tracking-tighter leading-[0.85] uppercase"
+            style="text-shadow: 0 0 80px rgba(169,199,255,0.15), 0 20px 60px rgba(0,0,0,0.6);">Cableado<br><span class="text-primary">&</span> Racks</h2>
+          <p class="text-on-surface-variant text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary/40 pl-6 py-2">Precisión quirúrgica en cada conexión. Diseñamos el sistema
+            circulatorio de tu empresa con estándares internacionales de categoría superior.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section 2: Networking -->
+    <div class="relative min-h-[500px] md:min-h-[819px] grid items-center py-16">
+      <div class="absolute inset-0 parallax-bg"
+        style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1778010567/concepto-moderno-de-colaboraci%C3%B3n-empresarial-con-tecnolog%C3%ADa-y-networking_ngs4qc.jpg')">
+      </div>
+      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-global grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+        <div class="md:col-start-2 space-y-8 text-left bg-black/60 md:bg-black/30 p-8 md:p-14 rounded-3xl backdrop-blur-xl border border-white/10 shadow-2xl transform transition-transform hover:scale-[1.02] duration-700 group">
+          <span class="text-primary font-telemetry-data tracking-[0.3em] uppercase text-xs md:text-sm block opacity-60 group-hover:opacity-100 transition-opacity duration-700">Protocol // 02</span>
+          <h1 class="font-display-lg font-black text-5xl sm:text-6xl md:text-8xl text-white tracking-tighter leading-[0.85] uppercase"
+            style="text-shadow: 0 0 80px rgba(169,199,255,0.15), 0 20px 60px rgba(0,0,0,0.6);">WAN <span class="text-primary">|</span> LAN<br>Wireless</h1>
+          <p class="text-white/70 text-base md:text-xl leading-relaxed mt-4">Eliminamos la latencia del vocabulario de tu
+            organización. Conectividad invisible, constante y de alta velocidad en cualquier entorno.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section 3: Hogar Inteligente -->
+    <div class="relative min-h-[500px] md:min-h-[819px] grid items-center py-16">
+      <div class="absolute inset-0 parallax-bg"
+        style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1777928263/alexa_iwud9a.jpg')">
+      </div>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-global grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+        <div class="space-y-8 group">
+          <span class="text-primary font-telemetry-data tracking-[0.3em] uppercase text-xs md:text-sm block opacity-60 group-hover:opacity-100 transition-opacity duration-700">Protocol // 03</span>
+          <h1 class="font-display-lg font-black text-6xl sm:text-7xl md:text-9xl text-white tracking-tighter leading-[0.85] uppercase"
+            style="text-shadow: 0 0 80px rgba(169,199,255,0.15), 0 20px 60px rgba(0,0,0,0.6);">Hogar<br><span class="text-primary">Inteligente</span></h1>
+          <p class="text-on-surface-variant text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary/40 pl-6 py-2">La automatización al servicio de la comodidad. Control total de tu
+            entorno mediante una interfaz minimalista y eficiente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Vision Section (Stacked Cards) -->
+  <section class="py-16 md:py-32 px-6 md:px-margin-global bg-surface-container-lowest" id="vision">
+    <div class="max-w-4xl mx-auto space-y-12">
+      <div class="text-center mb-12 md:mb-20">
+        <span class="text-primary font-telemetry-data tracking-[0.3em] uppercase text-xs md:text-sm block opacity-60 mb-4">Perspectiva // Futuro</span>
+        <h2 class="font-display-lg font-black text-5xl sm:text-6xl md:text-8xl text-white tracking-tighter leading-[0.85] uppercase mb-6"
+          style="text-shadow: 0 0 80px rgba(169,199,255,0.15), 0 20px 60px rgba(0,0,0,0.6);">Nuestra<br><span class="text-primary">Visión</span></h2>
+        <div class="h-1.5 w-24 bg-primary mx-auto shadow-[0_0_30px_rgba(169,199,255,0.8)] rounded-full"></div>
+      </div>
+      <!-- Card 1 -->
+      <div
+        class="glass-panel p-8 md:p-16 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-24 md:top-40 bg-surface-container-highest">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 md:gap-12 text-center md:text-left">
+          <div>
+            <blockquote class="font-drama-italic text-2xl md:text-3xl text-on-surface leading-tight italic">
+              "Nuestro Objetivo es que evoluciones con tecnología de alto nivel..."
+            </blockquote>
+            <p class="mt-6 font-telemetry-data text-primary uppercase tracking-tighter">— NETSTAT PROTOCOL</p>
+          </div>
+          <div class="w-full md:w-32 h-32 grid items-center justify-center row-start-1 md:row-start-auto">
+            <span class="material-symbols-outlined text-primary text-8xl opacity-20 animate-spin"
+              style="animation-duration: 10s">hexagon</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div
+        class="glass-panel p-8 md:p-16 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-28 md:top-48 bg-surface-container-high scale-[0.98]">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 md:gap-12 text-center md:text-left">
+          <div>
+            <h3 class="font-display-lg font-black text-2xl md:text-4xl text-white tracking-tighter uppercase mb-4"
+              style="text-shadow: 0 0 60px rgba(169,199,255,0.1), 0 10px 40px rgba(0,0,0,0.5);">Escaneo <span class="text-primary">Láser</span></h3>
+            <p class="text-on-surface-variant text-sm md:text-base">Análisis exhaustivo de vulnerabilidades y rendimiento de red mediante
+              hardware de última generación.</p>
+          </div>
+          <div class="w-full md:w-32 h-32 grid items-center justify-center relative row-start-1 md:row-start-auto">
+            <div class="absolute w-full h-0.5 bg-primary/40 animate-bounce top-0"></div>
+            <span class="material-symbols-outlined text-primary text-8xl opacity-10">grid_view</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div
+        class="glass-panel p-8 md:p-16 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-32 md:top-56 bg-surface-container scale-[0.95]">
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 md:gap-12 text-center md:text-left">
+          <div>
+            <h3 class="font-display-lg font-black text-2xl md:text-4xl text-white tracking-tighter uppercase mb-4"
+              style="text-shadow: 0 0 60px rgba(169,199,255,0.1), 0 10px 40px rgba(0,0,0,0.5);">Pulso <span class="text-primary">Dinámico</span></h3>
+            <p class="text-on-surface-variant text-sm md:text-base">Monitorización constante que garantiza el latido vital de tus operaciones
+              críticas sin interrupciones.</p>
+          </div>
+          <div class="w-full md:w-32 h-32 grid items-center justify-center row-start-1 md:row-start-auto">
+            <span class="material-symbols-outlined text-primary text-8xl opacity-10 animate-pulse">monitoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contacto Section -->
+  <section class="py-16 md:py-32 px-6 md:px-margin-global bg-surface-dim" id="protocol">
+    <div class="max-w-7xl mx-auto">
+      <div class="glass-panel p-6 md:p-20 rounded-xl grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 overflow-hidden relative">
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px]"></div>
+        <div class="space-y-8 relative z-10">
+          <h2 class="font-display-lg font-black text-5xl sm:text-6xl md:text-7xl text-white tracking-tighter leading-[0.85] uppercase"
+            style="text-shadow: 0 0 80px rgba(169,199,255,0.15), 0 20px 60px rgba(0,0,0,0.6);">Iniciemos<br>el <span class="text-primary italic font-drama-italic">Protocolo.</span></h2>
+          <p class="text-on-surface-variant max-w-md text-sm md:text-base">Contáctanos para una auditoría personalizada de tu infraestructura
+            técnica. Estamos listos para elevar tus estándares.</p>
+          <div class="grid gap-6 pt-8">
+            <div class="grid grid-cols-[auto_1fr] items-center gap-4 group">
+              <div
+                class="w-12 h-12 rounded-full glass-panel grid items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                <span class="material-symbols-outlined">alternate_email</span>
+              </div>
+              <span class="font-telemetry-data text-sm md:text-base text-white">hola@cliks.com.ar</span>
+            </div>
+            <div class="grid grid-cols-[auto_1fr] items-center gap-4 group">
+              <div
+                class="w-12 h-12 rounded-full glass-panel grid items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <span class="font-telemetry-data text-white">+54 9 11 0000 0000</span>
+            </div>
+          </div>
+        </div>
+        <form action="mailto:castro.leonardo82@gmail.com" method="post" enctype="text/plain" class="space-y-6 relative z-10">
+          <div class="space-y-2">
+            <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Nombre</label>
+            <input
+              class="w-full bg-white/5 border border-white/10 rounded-full px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
+              placeholder="Tu nombre completo" type="text">
+          </div>
+          <div class="space-y-2">
+            <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Email</label>
+            <input
+              class="w-full bg-white/5 border border-white/10 rounded-full px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
+              placeholder="ejemplo@dominio.com" type="email">
+          </div>
+          <div class="space-y-2">
+            <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Cuéntanos sobre tu proyecto</label>
+            <textarea
+              class="w-full bg-white/5 border border-white/10 rounded-3xl px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
+              placeholder="Descríbenos brevemente tu necesidad técnica..." rows="4"></textarea>
+          </div>
+          <button
+            class="w-full bg-white text-black font-bold uppercase tracking-widest py-5 rounded-full magnetic-effect hover:bg-primary transition-all"
+            type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="w-full mt-auto bg-[#000814] rounded-t-[2rem] md:rounded-t-[3rem] pt-12 md:pt-20 pb-10 px-6 md:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] items-start md:items-center gap-10 md:gap-12 mb-12 md:mb-20">
+        <div class="space-y-4">
+          <div class="text-xl md:text-2xl font-bold text-white tracking-tighter uppercase font-['Plus_Jakarta_Sans']">NETSTAT -AR
+          </div>
+          <p class="text-slate-500 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase">© 2024 NETSTAT -AR.
+            ENCRYPTED PROTOCOL.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-8 md:gap-12">
+          <div class="space-y-6">
+            <h5 class="text-white font-bold text-xs uppercase tracking-[0.2em]">Sitemap</h5>
+            <ul class="space-y-3">
+              <li><a
+                  class="text-slate-500 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase hover:text-white transition-all"
+                  href="#telemetry">Experiencia</a></li>
+              <li><a
+                  class="text-slate-500 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase hover:text-white transition-all"
+                  href="#network">Servicios</a></li>
+              <li><a
+                  class="text-slate-500 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase hover:text-white transition-all"
+                  href="#vision">Vision</a></li>
+            </ul>
+          </div>
+          <div class="space-y-6">
+            <h5 class="text-white font-bold text-xs uppercase tracking-[0.2em]">Legal</h5>
+            <ul class="space-y-3">
+              <li><a
+                  class="text-slate-500 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase hover:text-white transition-all"
+                  href="#">Privacy Policy</a></li>
+              <li><a
+                  class="text-slate-500 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase hover:text-white transition-all"
+                  href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid grid-cols-[auto_1fr] items-center gap-3 bg-white/5 px-6 py-3 rounded-full border border-white/10 w-fit">
+          <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>
+          <span
+            class="text-emerald-400 font-['Plus_Jakarta_Sans'] text-[10px] tracking-widest uppercase drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]">Status:
+            Active</span>
+        </div>
+      </div>
+      <div
+        class="pt-10 border-t border-white/5 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 opacity-30 text-[10px] uppercase tracking-widest font-telemetry-data text-center md:text-left">
+        <p>Designed by Cliks Informática</p>
+        <div class="grid grid-cols-2 gap-4 md:gap-8 justify-items-center md:justify-items-end">
+          <span>ARGENTINA BRANCH // 01</span>
+          <span>EST. 2024</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
