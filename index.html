@@ -73,7 +73,27 @@
       <img class="w-full h-full object-cover opacity-100"
         data-alt="A cinematic, low-angle shot of a massive, hyper-modern datacenter corridor filled with glowing blue server racks stretching into infinity. The lighting is moody and high-contrast, featuring deep blacks and electric blue highlights. Atmospheric mist caught in the light beams adds a sense of immense scale and technical mystery. The overall aesthetic is cold, precise, and sophisticated."
         src="https://res.cloudinary.com/dqetqwtxt/image/upload/v1778159473/Gemini_Generated_Image_Network_no_watermark_c3cajx.png">
-      <div class="absolute inset-0 hero-gradient"></div>
+      
+      <!-- OVERLAYS: Dispositivos y LEDs (Valores aproximados para ajustar) -->
+      <div class="absolute inset-0 z-10 pointer-events-none">
+        <!-- Pantallas (Laptop, Tablet, Teléfonos) -->
+        <!-- Ajusta top, left, width y height para alinear con las pantallas en la imagen -->
+        <div class="absolute top-[65%] left-[45%] w-[8%] h-[10%] bg-cyan-400/30 animate-screen blur-[2px] rounded" style="transform: skewY(-5deg);"></div>
+        <div class="absolute top-[70%] left-[35%] w-[5%] h-[4%] bg-blue-500/20 animate-screen blur-[1px] rounded" style="animation-delay: 1s;"></div>
+        <div class="absolute top-[72%] left-[55%] w-[2%] h-[3%] bg-indigo-400/30 animate-screen blur-[1px] rounded" style="animation-delay: 2.5s;"></div>
+        
+        <!-- LEDs: Servidor y Switch en la mesa -->
+        <!-- Ajusta las coordenadas para que calcen justo sobre los equipos de la mesa -->
+        <div class="absolute top-[75%] left-[40%] w-1.5 h-1.5 bg-[#00ff41] rounded-full animate-led-random shadow-[0_0_8px_#00ff41]"></div>
+        <div class="absolute top-[75%] left-[41%] w-1 h-1 bg-cyan-400 rounded-full animate-led-fast shadow-[0_0_6px_#22d3ee]"></div>
+        <div class="absolute top-[76%] left-[40%] w-1.5 h-1.5 bg-[#00ff41] rounded-full animate-led-random shadow-[0_0_8px_#00ff41]" style="animation-delay: 0.3s;"></div>
+        
+        <!-- LEDs: Access Point -->
+        <div class="absolute top-[20%] left-[50%] w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6]"></div>
+        <div class="absolute top-[20%] left-[51%] w-1.5 h-1.5 bg-emerald-400 rounded-full animate-led-random shadow-[0_0_8px_#34d399]" style="animation-delay: 0.5s;"></div>
+      </div>
+
+      <div class="absolute inset-0 hero-gradient z-20"></div>
     </div>
     <div class="relative z-10 flex flex-col justify-end h-full px-6 md:px-margin-global pb-12 md:pb-24 max-w-7xl mx-auto">
       <div class="max-w-3xl space-y-6">
@@ -311,22 +331,22 @@
             </div>
           </div>
         </div>
-        <form action="mailto:castro.leonardo82@gmail.com" method="post" enctype="text/plain" class="space-y-6 relative z-10">
+        <form action="https://formsubmit.co/castro.leonardo82@gmail.com" method="POST" class="space-y-6 relative z-10">
           <div class="space-y-2">
             <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Nombre</label>
-            <input
+            <input name="name" required
               class="w-full bg-white/5 border border-white/10 rounded-full px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
               placeholder="Tu nombre completo" type="text">
           </div>
           <div class="space-y-2">
             <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Email</label>
-            <input
+            <input name="email" required
               class="w-full bg-white/5 border border-white/10 rounded-full px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
               placeholder="ejemplo@dominio.com" type="email">
           </div>
           <div class="space-y-2">
             <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Cuéntanos sobre tu proyecto</label>
-            <textarea
+            <textarea name="message" required
               class="w-full bg-white/5 border border-white/10 rounded-3xl px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
               placeholder="Descríbenos brevemente tu necesidad técnica..." rows="4"></textarea>
           </div>
