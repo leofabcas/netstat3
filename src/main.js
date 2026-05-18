@@ -213,3 +213,77 @@ if (mobileMenuBtn && mobileMenu) {
 }
 
 console.log('NETSTAT-AR Final Animations Initialized');
+
+// --- Form Submission & Modal Logic ---
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const submitText = document.getElementById('submit-text');
+const submitSpinner = document.getElementById('submit-spinner');
+const successModal = document.getElementById('success-modal');
+const successModalContent = document.getElementById('success-modal-content');
+const closeModalBtn = document.getElementById('close-modal-btn');
+
+if (contactForm && successModal) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Update button state
+        if (submitBtn) submitBtn.disabled = true;
+        if (submitText) submitText.classList.add('hidden');
+        if (submitSpinner) submitSpinner.classList.remove('hidden');
+
+        // Extract form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        // Send AJAX request
+        fetch("https://formsubmit.co/ajax/castro.leonardo82@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Restore button state
+            if (submitBtn) submitBtn.disabled = false;
+            if (submitText) submitText.classList.remove('hidden');
+            if (submitSpinner) submitSpinner.classList.add('hidden');
+
+            if (data.success === "true" || data.success) {
+                // Reset form
+                contactForm.reset();
+
+                // Show success modal
+                successModal.classList.remove('opacity-0', 'pointer-events-none');
+                if (successModalContent) {
+                    successModalContent.classList.remove('scale-95');
+                    successModalContent.classList.add('scale-100');
+                }
+            } else {
+                alert("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+            }
+        })
+        .catch(error => {
+            console.error('Error enviando formulario:', error);
+            // Restore button state on error
+            if (submitBtn) submitBtn.disabled = false;
+            if (submitText) submitText.classList.remove('hidden');
+            if (submitSpinner) submitSpinner.classList.add('hidden');
+            alert("Hubo un error al enviar el mensaje. Verifica tu conexión e intenta de nuevo.");
+        });
+    });
+
+    // Close modal logic
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+            successModal.classList.add('opacity-0', 'pointer-events-none');
+            if (successModalContent) {
+                successModalContent.classList.remove('scale-100');
+                successModalContent.classList.add('scale-95');
+            }
+        });
+    }
+}

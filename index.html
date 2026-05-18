@@ -331,7 +331,7 @@
             </div>
           </div>
         </div>
-        <form action="https://formsubmit.co/castro.leonardo82@gmail.com" method="POST" class="space-y-6 relative z-10">
+        <form id="contact-form" action="https://formsubmit.co/castro.leonardo82@gmail.com" method="POST" class="space-y-6 relative z-10">
           <div class="space-y-2">
             <label class="font-telemetry-data text-xs uppercase text-white/40 ml-4">Nombre</label>
             <input name="name" required
@@ -350,10 +350,20 @@
               class="w-full bg-white/5 border border-white/10 rounded-3xl px-8 py-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-white/20 font-telemetry-data"
               placeholder="Descríbenos brevemente tu necesidad técnica..." rows="4"></textarea>
           </div>
-          <button
-            class="w-full bg-white text-black font-bold uppercase tracking-widest py-5 rounded-full magnetic-effect hover:bg-primary transition-all"
-            type="submit">Enviar</button>
+          <button id="submit-btn"
+            class="w-full bg-white text-black font-bold uppercase tracking-widest py-5 rounded-full magnetic-effect hover:bg-primary transition-all flex justify-center items-center gap-2"
+            type="submit"><span id="submit-text">Enviar</span><span id="submit-spinner" class="material-symbols-outlined animate-spin hidden">progress_activity</span></button>
         </form>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+          <div class="glass-panel p-8 rounded-2xl max-w-sm w-[90%] text-center border border-primary/30 shadow-[0_0_40px_rgba(169,199,255,0.15)] transform scale-95 transition-transform duration-300" id="success-modal-content">
+            <span class="material-symbols-outlined text-6xl text-primary mb-4 block">check_circle</span>
+            <h3 class="text-2xl font-bold text-white mb-2 font-display-lg uppercase tracking-wider">¡Mensaje Enviado!</h3>
+            <p class="text-white/70 text-sm mb-6">Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo a la brevedad.</p>
+            <button id="close-modal-btn" class="w-full bg-primary text-black font-bold uppercase tracking-widest py-3 rounded-full hover:bg-white transition-all magnetic-effect">Aceptar</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
