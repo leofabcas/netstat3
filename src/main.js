@@ -234,36 +234,30 @@ if (contactForm && successModal) {
 
         // Extract form data
         const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
 
         // Send AJAX request
-        fetch("https://formsubmit.co/ajax/castro.leonardo82@gmail.com", {
+        fetch("https://formsubmit.co/castro.leonardo82@gmail.com", {
             method: "POST",
+            mode: "no-cors",
             headers: { 
-                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: formData
         })
-        .then(response => response.json())
-        .then(data => {
+        .then(() => {
             // Restore button state
             if (submitBtn) submitBtn.disabled = false;
             if (submitText) submitText.classList.remove('hidden');
             if (submitSpinner) submitSpinner.classList.add('hidden');
 
-            if (data.success === "true" || data.success) {
-                // Reset form
-                contactForm.reset();
+            // Reset form
+            contactForm.reset();
 
-                // Show success modal
-                successModal.classList.remove('opacity-0', 'pointer-events-none');
-                if (successModalContent) {
-                    successModalContent.classList.remove('scale-95');
-                    successModalContent.classList.add('scale-100');
-                }
-            } else {
-                alert("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+            // Show success modal
+            successModal.classList.remove('opacity-0', 'pointer-events-none');
+            if (successModalContent) {
+                successModalContent.classList.remove('scale-95');
+                successModalContent.classList.add('scale-100');
             }
         })
         .catch(error => {
