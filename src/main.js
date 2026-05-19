@@ -234,30 +234,38 @@ if (contactForm && successModal) {
 
         // Extract form data
         const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
 
-        // Send AJAX request
-        fetch("https://formsubmit.co/castro.leonardo82@gmail.com", {
+        // Send AJAX request to Web3Forms
+        fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            mode: "no-cors",
             headers: { 
+                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: formData
+            body: JSON.stringify(data)
         })
-        .then(() => {
+        .then(async (response) => {
+            let json = await response.json();
+            
             // Restore button state
             if (submitBtn) submitBtn.disabled = false;
             if (submitText) submitText.classList.remove('hidden');
             if (submitSpinner) submitSpinner.classList.add('hidden');
 
-            // Reset form
-            contactForm.reset();
+            if (response.status === 200) {
+                // Reset form
+                contactForm.reset();
 
-            // Show success modal
-            successModal.classList.remove('opacity-0', 'pointer-events-none');
-            if (successModalContent) {
-                successModalContent.classList.remove('scale-95');
-                successModalContent.classList.add('scale-100');
+                // Show success modal
+                successModal.classList.remove('opacity-0', 'pointer-events-none');
+                if (successModalContent) {
+                    successModalContent.classList.remove('scale-95');
+                    successModalContent.classList.add('scale-100');
+                }
+            } else {
+                console.log(response);
+                alert("Hubo un error: " + (json.message || "Por favor intenta de nuevo."));
             }
         })
         .catch(error => {
