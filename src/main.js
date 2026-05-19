@@ -308,53 +308,26 @@ if (contactForm && successModal) {
 
         // Extract form data
         const formData = new FormData(contactForm);
-        const accessKey1 = formData.get('access_key');
-        const accessKey2 = formData.get('access_key_2');
-        
-        // Evitar que las llaves viajen en el cuerpo del mensaje visible
-        formData.delete('access_key');
-        formData.delete('access_key_2');
         const data = Object.fromEntries(formData.entries());
 
-        const requests = [];
-
-        // Envío al correo principal
-        if (accessKey1) {
-            requests.push(fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ ...data, access_key: accessKey1 })
-            }));
-        }
-
-        // Envío al correo secundario (si la llave fue configurada)
-        if (accessKey2 && accessKey2 !== 'TU_SEGUNDA_LLAVE_AQUI') {
-            requests.push(fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ ...data, access_key: accessKey2 })
-            }));
-        }
-
-        if (requests.length === 0) {
-            alert("Error de configuración del formulario.");
-            if (submitBtn) submitBtn.disabled = false;
-            if (submitText) submitText.classList.remove('hidden');
-            if (submitSpinner) submitSpinner.classList.add('hidden');
-            return;
-        }
-
-        // Send AJAX requests to Web3Forms simultaneamente
-        Promise.all(requests)
-        .then(async (responses) => {
-            const allOk = responses.every(r => r.status === 200);
+        // Send AJAX request to Web3Forms
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(async (response) => {
+            let json = await response.json();
             
             // Restore button state
             if (submitBtn) submitBtn.disabled = false;
             if (submitText) submitText.classList.remove('hidden');
             if (submitSpinner) submitSpinner.classList.add('hidden');
 
-            if (allOk) {
+            if (response.status === 200) {
                 // Reset form
                 contactForm.reset();
 
@@ -365,7 +338,8 @@ if (contactForm && successModal) {
                     successModalContent.classList.add('scale-100');
                 }
             } else {
-                alert("Hubo un error al procesar el envío. Por favor intenta de nuevo.");
+                console.log(response);
+                alert("Hubo un error: " + (json.message || "Por favor intenta de nuevo."));
             }
         })
         .catch(error => {
