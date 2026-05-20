@@ -71,7 +71,7 @@
     </div>
   </div>
   <!-- Hero Section -->
-  <section class="relative min-h-[100dvh] md:h-[1024px] w-full overflow-hidden pt-24 md:pt-0">
+  <section class="relative min-h-[100dvh] lg:h-screen w-full overflow-hidden flex items-center pt-20 lg:pt-0">
     <div class="absolute inset-0 z-0">
       <img class="w-full h-full object-cover opacity-100"
         data-alt="A cinematic, low-angle shot of a massive, hyper-modern datacenter corridor filled with glowing blue server racks stretching into infinity. The lighting is moody and high-contrast, featuring deep blacks and electric blue highlights. Atmospheric mist caught in the light beams adds a sense of immense scale and technical mystery. The overall aesthetic is cold, precise, and sophisticated."
@@ -112,7 +112,7 @@
       <div class="absolute inset-0 hero-gradient z-20"></div>
     </div>
     <div
-      class="relative z-10 flex flex-col justify-end h-full px-6 md:px-margin-global pb-12 md:pb-24 max-w-7xl mx-auto">
+      class="relative z-10 flex flex-col justify-center w-full px-6 md:px-margin-global py-12 md:py-16 max-w-7xl mx-auto">
       <div class="max-w-3xl space-y-6">
         <h1 class="grid gap-2">
           <span class="scramble-text font-display-lg text-4xl md:text-display-lg text-white leading-tight">Soluciones
@@ -124,15 +124,26 @@
             CLICKS INFORMÁTICA</span>
         </h1>
         <p
-          class="text-white max-w-2xl font-body-standard text-lg md:text-xl font-medium leading-relaxed border-l-4 border-primary pl-8 py-4 bg-gradient-to-r from-primary/10 to-transparent rounded-r-2xl">
-          Garantizamos <span class="text-primary font-bold">interconectividad</span> de máxima calidad, <span
-            class="text-primary font-bold">estabilidad</span> y <span class="text-primary font-bold">eficiencia</span>
+          class="text-white max-w-4xl font-body-standard text-2xl md:text-3xl lg:text-[34px] font-light leading-relaxed border-l-4 border-primary pl-8 py-5 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent rounded-r-3xl backdrop-blur-sm relative overflow-hidden group shadow-[0_10px_50px_-20px_rgba(169,199,255,0.15)]">
+          <!-- Ambient glowing background inside the text box -->
+          <span class="absolute -left-10 top-0 w-32 h-full bg-primary/10 blur-3xl pointer-events-none"></span>
+          
+          Garantizamos <span class="text-primary font-black drop-shadow-[0_0_20px_rgba(169,199,255,0.8)] tracking-wide">interconectividad</span> de máxima calidad, <span
+            class="text-primary font-black drop-shadow-[0_0_20px_rgba(169,199,255,0.8)] tracking-wide">estabilidad</span> y <span class="text-primary font-black drop-shadow-[0_0_20px_rgba(169,199,255,0.8)] tracking-wide">eficiencia</span>
           para empresas y hogares inteligentes.
         </p>
-        <div class="pt-8 flex sm:block justify-center">
+        <div class="pt-6 flex justify-center sm:justify-start">
           <a href="#protocol" id="hero-action-btn"
-            class="group inline-flex items-center justify-center bg-primary text-on-primary w-16 h-16 rounded-full animate-breathing-button magnetic-effect transition-all hover:bg-white hover:text-black">
-            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            class="group relative inline-flex items-center justify-center gap-3 bg-[#0a1128]/80 text-primary border border-primary/40 px-8 py-4 rounded-full font-telemetry-data font-bold tracking-widest text-xs sm:text-sm uppercase overflow-hidden transition-all duration-300 hover:border-primary hover:text-white hover:shadow-[0_0_30px_rgba(169,199,255,0.4)] backdrop-blur-md active:scale-95 magnetic-effect">
+            <!-- Glowing background sweep -->
+            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+            
+            <!-- Tech corner markers/decorations for premium look -->
+            <span class="absolute top-0 left-4 w-2 h-[1px] bg-primary/60"></span>
+            <span class="absolute bottom-0 right-4 w-2 h-[1px] bg-primary/60"></span>
+            
+            <span class="material-symbols-outlined text-lg group-hover:rotate-12 transition-transform">mail</span>
+            <span>Iniciar Protocolo</span>
           </a>
         </div>
       </div>
@@ -227,7 +238,7 @@
   <!-- Proyecto Section (Parallax Content) -->
   <section class="bg-surface-container-lowest py-16 md:py-32 space-y-16 md:space-y-32" id="network">
     <!-- Section 1: Infraestructura -->
-    <div class="relative min-h-[500px] md:min-h-[819px] grid items-center py-16">
+    <div class="relative min-h-[500px] lg:min-h-[75vh] grid items-center py-16">
       <div class="absolute inset-0 parallax-bg"
         style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1777594692/Datacenter_pzl9my.png')">
       </div>
@@ -250,7 +261,7 @@
       </div>
     </div>
     <!-- Section 2: Networking -->
-    <div class="relative min-h-[500px] md:min-h-[819px] grid items-center py-16">
+    <div class="relative min-h-[500px] lg:min-h-[75vh] grid items-center py-16">
       <div class="absolute inset-0 parallax-bg"
         style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1778010567/concepto-moderno-de-colaboraci%C3%B3n-empresarial-con-tecnolog%C3%ADa-y-networking_ngs4qc.jpg')">
       </div>
@@ -273,7 +284,7 @@
       </div>
     </div>
     <!-- Section 3: Hogar Inteligente -->
-    <div class="relative min-h-[500px] md:min-h-[819px] grid items-center py-16">
+    <div class="relative min-h-[500px] lg:min-h-[75vh] grid items-center py-16">
       <div class="absolute inset-0 parallax-bg"
         style="background-image: url('https://res.cloudinary.com/dqetqwtxt/image/upload/v1777928263/alexa_iwud9a.jpg')">
       </div>
@@ -311,7 +322,7 @@
       </div>
       <!-- Card 1 -->
       <div
-        class="glass-panel p-8 md:p-16 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-24 md:top-40 bg-surface-container-highest">
+        class="glass-panel p-6 sm:p-8 md:p-12 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-20 md:top-32 bg-surface-container-highest">
         <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 md:gap-12 text-center md:text-left">
           <div>
             <blockquote class="font-drama-italic text-2xl md:text-3xl text-on-surface leading-tight italic">
@@ -327,7 +338,7 @@
       </div>
       <!-- Card 2 -->
       <div
-        class="glass-panel p-8 md:p-16 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-28 md:top-48 bg-surface-container-high">
+        class="glass-panel p-6 sm:p-8 md:p-12 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-24 md:top-36 bg-surface-container-high">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
         <div
           class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 md:gap-12 text-center md:text-left">
@@ -347,7 +358,7 @@
       </div>
       <!-- Card 3 -->
       <div
-        class="glass-panel p-8 md:p-16 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-32 md:top-56 bg-surface-container">
+        class="glass-panel p-6 sm:p-8 md:p-12 rounded-xl relative overflow-hidden transition-all duration-500 sticky top-28 md:top-40 bg-surface-container">
         <div
           class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 md:gap-12 text-center md:text-left">
           <div>
