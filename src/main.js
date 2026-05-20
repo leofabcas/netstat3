@@ -20,6 +20,39 @@ if (typingElement) {
     type();
 }
 
+// --- Handwriting Typing Effect ---
+const handwrittenElement = document.getElementById('hero-handwritten');
+const cursorElement = document.querySelector('.handwritten-cursor');
+if (handwrittenElement) {
+    const text = "By Cliks Informática";
+    let i = 0;
+    
+    function typeHandwritten() {
+        if (i < text.length) {
+            handwrittenElement.textContent += text.charAt(i);
+            i++;
+            if (cursorElement) cursorElement.style.opacity = '1';
+            setTimeout(typeHandwritten, 80 + Math.random() * 80);
+        } else {
+            // Typing finished. Hide or fade out cursor after a short delay
+            if (cursorElement) {
+                cursorElement.style.opacity = '0';
+            }
+            // Wait 12 seconds, then reset and type again
+            setTimeout(() => {
+                handwrittenElement.textContent = "";
+                i = 0;
+                if (cursorElement) cursorElement.style.opacity = '1';
+                typeHandwritten();
+            }, 12000);
+        }
+    }
+    
+    // Clear initial static text and start animation after a short delay
+    handwrittenElement.textContent = "";
+    setTimeout(typeHandwritten, 1200);
+}
+
 // --- Protocolos Carousel (Dynamic bottom-to-top) ---
 const cards = document.querySelectorAll('.exp-card');
 let activeIndex = 0;
