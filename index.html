@@ -70,118 +70,164 @@
         class="bg-primary text-slate-950 px-8 py-3 mt-4 rounded-full text-sm font-bold uppercase tracking-wider magnetic-effect cursor-pointer active:scale-95 transition-all mobile-link">Connect</a>
     </div>
   </div>
-  <!-- Hero Section -->
-  <section class="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-24 pb-12 lg:pt-32 lg:pb-16">
+  <!-- Hero Section (Bento Glass Console) -->
+  <section
+    class="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-24 pb-12 lg:pt-32 lg:pb-16 bg-[#000814]">
+
+    <!-- Background Image & Cinematic Overlays (Full Screen) -->
     <div class="absolute inset-0 z-0">
-      <img class="w-full h-full object-cover opacity-100"
-        data-alt="A cinematic, low-angle shot of a massive, hyper-modern datacenter corridor filled with glowing blue server racks stretching into infinity. The lighting is moody and high-contrast, featuring deep blacks and electric blue highlights. Atmospheric mist caught in the light beams adds a sense of immense scale and technical mystery. The overall aesthetic is cold, precise, and sophisticated."
+      <img class="w-full h-full object-cover opacity-60 mix-blend-screen"
+        data-alt="A cinematic, low-angle shot of a massive, hyper-modern datacenter corridor filled with glowing blue server racks stretching into infinity."
         src="https://res.cloudinary.com/dqetqwtxt/image/upload/v1778159473/Gemini_Generated_Image_Network_no_watermark_c3cajx.png">
 
-      <!-- OVERLAYS: Dispositivos y LEDs (Valores aproximados para ajustar) -->
-      <div class="absolute inset-0 z-10 pointer-events-none">
-        <!-- Pantallas (Laptop, Tablet, Teléfonos) -->
-        <!-- Ajusta top, left, width y height para alinear con las pantallas en la imagen -->
-        <div class="absolute top-[65%] left-[45%] w-[8%] h-[10%] bg-cyan-400/30 animate-screen blur-[2px] rounded"
-          style="transform: skewY(-5deg);"></div>
-        <div class="absolute top-[70%] left-[35%] w-[5%] h-[4%] bg-blue-500/20 animate-screen blur-[1px] rounded"
-          style="animation-delay: 1s;"></div>
-        <div class="absolute top-[72%] left-[55%] w-[2%] h-[3%] bg-indigo-400/30 animate-screen blur-[1px] rounded"
-          style="animation-delay: 2.5s;"></div>
-
-        <!-- LEDs: Servidor y Switch en la mesa -->
-        <!-- Ajusta las coordenadas para que calcen justo sobre los equipos de la mesa -->
-        <div
-          class="absolute top-[75%] left-[40%] w-1.5 h-1.5 bg-[#00ff41] rounded-full animate-led-random shadow-[0_0_8px_#00ff41]">
-        </div>
-        <div
-          class="absolute top-[75%] left-[41%] w-1 h-1 bg-cyan-400 rounded-full animate-led-fast shadow-[0_0_6px_#22d3ee]">
-        </div>
-        <div
-          class="absolute top-[76%] left-[40%] w-1.5 h-1.5 bg-[#00ff41] rounded-full animate-led-random shadow-[0_0_8px_#00ff41]"
-          style="animation-delay: 0.3s;"></div>
-
-        <!-- LEDs: Access Point -->
-        <div
-          class="absolute top-[20%] left-[50%] w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_#3b82f6]">
-        </div>
-        <div
-          class="absolute top-[20%] left-[51%] w-1.5 h-1.5 bg-emerald-400 rounded-full animate-led-random shadow-[0_0_8px_#34d399]"
-          style="animation-delay: 0.5s;"></div>
+      <!-- Tech Grid & Gradients -->
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#a9c7ff10_1px,transparent_1px),linear-gradient(to_bottom,#a9c7ff10_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#000_30%,transparent_100%)]">
       </div>
 
-      <div class="absolute inset-0 hero-gradient z-20"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[#000814] via-[#000814]/40 to-[#000814]/80 z-20 pointer-events-none">
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[#000814] via-transparent to-[#000814] z-20 pointer-events-none">
+      </div>
     </div>
+
+    <!-- Central Glass Console (The substantial change) -->
     <div
-      class="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-center justify-center w-full px-6 md:px-margin-global max-w-[1440px] mx-auto gap-8 lg:gap-12 xl:gap-16">
-      <div class="lg:col-span-8 max-w-4xl space-y-6">
-        <h1 class="grid gap-2">
-          <span class="scramble-text font-display-lg text-4xl md:text-display-lg text-white leading-tight">Soluciones
-            integrales</span>
-          <span
-            class="scramble-text font-display-lg font-black text-4xl sm:text-6xl lg:text-[56px] xl:text-[76px] 2xl:text-[100px] leading-none md:leading-tight text-primary uppercase tracking-tighter lg:-mt-4">Infraestructura&nbsp;</span>
-          <div class="justify-self-end lg:justify-self-start mt-2 flex items-center gap-1 select-none">
-            <span id="hero-handwritten" class="handwritten-tech text-3xl md:text-4xl font-bold">By Cliks
-              Informática</span>
-            <span class="handwritten-cursor text-3xl md:text-4xl font-bold animate-pulse">|</span>
-          </div>
-        </h1>
-        <p
-          class="text-white max-w-4xl font-body-standard text-2xl md:text-3xl lg:text-[34px] font-light leading-relaxed border-l-4 border-primary pl-8 py-5 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent rounded-r-3xl backdrop-blur-sm relative overflow-hidden group shadow-[0_10px_50px_-20px_rgba(169,199,255,0.15)]">
-          <!-- Ambient glowing background inside the text box -->
-          <span class="absolute -left-10 top-0 w-32 h-full bg-primary/10 blur-3xl pointer-events-none"></span>
+      class="relative z-30 w-full px-4 md:px-8 max-w-[1536px] mx-auto flex justify-center perspective-1000 mt-12 md:mt-0">
 
-          Garantizamos <span
-            class="text-primary font-black drop-shadow-[0_0_20px_rgba(169,199,255,0.8)] tracking-wide">interconectividad</span>
-          de máxima calidad, <span
-            class="text-primary font-black drop-shadow-[0_0_20px_rgba(169,199,255,0.8)] tracking-wide">estabilidad</span>
-          y <span
-            class="text-primary font-black drop-shadow-[0_0_20px_rgba(169,199,255,0.8)] tracking-wide">eficiencia</span>
-          para empresas y hogares inteligentes.
-        </p>
-        <div class="pt-6 flex justify-center sm:justify-start">
-          <a href="#protocol" id="hero-action-btn"
-            class="group relative inline-flex items-center justify-center gap-3 bg-[#0a1128]/80 text-primary border border-primary/40 px-8 py-4 rounded-full font-telemetry-data font-bold tracking-widest text-xs sm:text-sm uppercase overflow-hidden transition-all duration-300 hover:border-primary hover:text-white hover:shadow-[0_0_30px_rgba(169,199,255,0.4)] backdrop-blur-md active:scale-95 magnetic-effect">
-            <!-- Glowing background sweep -->
-            <span
-              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+      <!-- Console Container -->
+      <div
+        class="w-full relative glass-panel rounded-[2rem] md:rounded-[3rem] border border-white/10 bg-[#050b14]/70 backdrop-blur-3xl overflow-hidden shadow-[0_0_100px_rgba(34,211,238,0.1)] ring-1 ring-white/5">
 
-            <!-- Tech corner markers/decorations for premium look -->
-            <span class="absolute top-0 left-4 w-2 h-[1px] bg-primary/60"></span>
-            <span class="absolute bottom-0 right-4 w-2 h-[1px] bg-primary/60"></span>
-
-            <span class="material-symbols-outlined text-lg group-hover:rotate-12 transition-transform">mail</span>
-            <span>Iniciar Protocolo</span>
-          </a>
+        <!-- Ambient Inner Glow -->
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none">
         </div>
-      </div>
-
-      <!-- Columna Derecha: Speedtest Widget -->
-      <div class="lg:col-span-4 w-full max-w-[360px] mx-auto lg:mx-0 lg:ml-auto">
         <div
-          class="glass-panel p-6 rounded-3xl border border-primary/20 hover:border-primary/45 shadow-[0_0_50px_rgba(169,199,255,0.15)] transition-all duration-500 relative overflow-hidden group bg-[#0a1128]/35">
-          <!-- Ambient light glow behind the widget -->
-          <span
-            class="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 blur-3xl pointer-events-none group-hover:bg-primary/20 transition-all duration-500"></span>
+          class="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-400/20 blur-[100px] rounded-full pointer-events-none">
+        </div>
 
-          <!-- Widget Header -->
-          <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 bg-[#00ff41] rounded-full pulse-dot shadow-[0_0_8px_#00ff41]"></span>
-              <span class="font-telemetry-data text-xs tracking-widest uppercase text-white/70">Diagnóstico //
-                Speedtest</span>
+        <!-- Grid Inside Console -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+
+          <!-- Left Panel (Text & Actions) -->
+          <div class="lg:col-span-7 xl:col-span-8 p-8 md:p-16 lg:pr-8 flex flex-col justify-center relative">
+
+            <div class="space-y-6">
+              <!-- System Status Badge & Mother Brand -->
+              <div class="flex flex-wrap items-center gap-4 mb-4">
+                <div
+                  class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 shadow-[inset_0_0_15px_rgba(169,199,255,0.1)]">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+                  </span>
+                  <span
+                    class="font-telemetry-data text-[10px] md:text-xs tracking-[0.3em] uppercase text-cyan-100 font-bold">Sistema
+                    En Línea</span>
+                </div>
+
+                <!-- Mother Brand Indicator -->
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-black/40 border border-white/5">
+                  <span
+                    class="font-display-lg text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/80 font-bold">NETSTAT
+                    -AR</span>
+                  <span class="mx-3 text-[9px] text-white/40 italic font-serif">powered by</span>
+                  <span
+                    class="font-display-lg text-[10px] md:text-xs tracking-[0.1em] uppercase text-cyan-400 font-black">Cliks
+                    Informática</span>
+                </div>
+              </div>
+
+              <!-- Massive Typography -->
+              <h1 class="flex flex-col gap-0 md:gap-1 relative z-10">
+                <span
+                  class="text-white/80 font-display-lg text-2xl md:text-3xl lg:text-4xl tracking-widest uppercase mb-1 md:mb-[-10px] block opacity-90">
+                  Soluciones Integrales de
+                </span>
+                <span
+                  class="font-display-lg font-black text-6xl sm:text-7xl md:text-8xl lg:text-[90px] xl:text-[110px] 2xl:text-[130px] leading-[0.85] text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-500 uppercase tracking-tighter drop-shadow-2xl -ml-1 md:-ml-2"
+                  style="-webkit-text-stroke: 1px rgba(255,255,255,0.1);">
+                  Infraestructura
+                </span>
+              </h1>
+
+              <!-- Divider -->
+              <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-transparent rounded-full my-6 md:my-8"></div>
+
+              <!-- Refined Description -->
+              <p
+                class="text-white/80 max-w-2xl font-body-standard text-lg md:text-xl xl:text-2xl font-light leading-relaxed">
+                Garantizamos <span class="text-white font-bold">interconectividad</span> de máxima calidad, <span
+                  class="text-white font-bold">estabilidad</span> y <span class="text-white font-bold">eficiencia</span>
+                para entornos corporativos y hogares inteligentes.
+              </p>
+
+              <!-- Elegant Action Button -->
+              <div class="pt-6 md:pt-8">
+                <a href="#protocol"
+                  class="group relative inline-flex items-center justify-center gap-4 bg-white text-black px-10 py-4 md:py-5 rounded-full font-display-lg font-black tracking-widest text-sm uppercase overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)]">
+                  <span
+                    class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+                  <span class="material-symbols-outlined text-xl transition-transform group-hover:rotate-45">bolt</span>
+                  <span>Iniciar Protocolo</span>
+                </a>
+              </div>
             </div>
-            <span class="material-symbols-outlined text-primary/70 text-lg">network_check</span>
+
           </div>
 
-          <!-- Speedtest Iframe Wrapper -->
-          <!-- NOTA: Para usar Ookla Custom en producción, reemplaza la URL src por tu dominio de Speedtest Custom (ej: https://tudominio.speedtestcustom.com) y autoriza el dominio en tu panel de Ookla -->
+          <!-- Right Panel (Embedded Widget) -->
           <div
-            class="w-full overflow-hidden rounded-2xl bg-transparent border border-white/5 h-[280px] lg:h-[300px] 2xl:h-[360px]">
-            <iframe id="speedtest-iframe" src="https://openspeedtest.com/speedtest"
-              class="w-full h-full border-0 bg-transparent" style="mix-blend-mode: screen; filter: opacity(0.95);"
-              allow="geolocation" title="Prueba de velocidad de conexión">
-            </iframe>
+            class="lg:col-span-5 xl:col-span-4 bg-[#02050a]/60 border-t lg:border-t-0 lg:border-l border-white/10 relative overflow-hidden flex flex-col justify-center p-6 md:p-10">
+            <!-- Scanlines over right panel -->
+            <div
+              class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px] pointer-events-none z-0">
+            </div>
+
+            <div class="relative z-10 w-full max-w-[400px] mx-auto">
+              <!-- Widget Header inside console -->
+              <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-cyan-400 text-xl">speed</span>
+                  <span class="font-telemetry-data text-xs tracking-[0.2em] uppercase text-white/70">Diagnóstico de
+                    Red</span>
+                </div>
+                <div class="flex gap-1 opacity-50">
+                  <span class="w-1 h-3 bg-white rounded-full animate-pulse"></span>
+                  <span class="w-1 h-4 bg-white rounded-full animate-pulse" style="animation-delay: 0.2s"></span>
+                  <span class="w-1 h-5 bg-white rounded-full animate-pulse" style="animation-delay: 0.4s"></span>
+                </div>
+              </div>
+
+              <!-- Iframe Wrapper -->
+              <div
+                class="w-full overflow-hidden rounded-[1.5rem] bg-black/50 border border-white/5 h-[300px] lg:h-[350px] 2xl:h-[400px] shadow-inner ring-1 ring-black/50">
+                <iframe id="speedtest-iframe" src="https://openspeedtest.com/speedtest"
+                  class="w-full h-full border-0 bg-transparent" style="mix-blend-mode: screen; filter: opacity(0.95);"
+                  allow="geolocation" title="Prueba de velocidad de conexión">
+                </iframe>
+              </div>
+
+              <!-- Quick Stats below widget -->
+              <div class="grid grid-cols-2 gap-4 mt-6">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-3 backdrop-blur-sm">
+                  <div class="font-telemetry-data text-[9px] uppercase tracking-widest text-white/40 mb-1">Latencia Est.
+                  </div>
+                  <div class="text-cyan-400 font-bold font-['JetBrains_Mono',_monospace]">&lt; 2ms</div>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-3 backdrop-blur-sm">
+                  <div class="font-telemetry-data text-[9px] uppercase tracking-widest text-white/40 mb-1">
+                    Disponibilidad</div>
+                  <div class="text-emerald-400 font-bold font-['JetBrains_Mono',_monospace]">99.99%</div>
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
       </div>
     </div>
