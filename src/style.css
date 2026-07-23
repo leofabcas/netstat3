@@ -1964,3 +1964,13 @@ select {
 .hero-section {
     padding-top: 5rem;
 }
+
+/* Responsive Hero Title handling using CSS content to avoid breaking background-clip */
+.hero-title-responsive::before {
+    content: "INFRAESTRUCTURA";
+}
+@media (max-width: 767px) {
+    .hero-title-responsive::before {
+        content: "INFRA";
+    }
+}
